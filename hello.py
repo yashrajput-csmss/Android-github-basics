@@ -1,3 +1,5 @@
 print("Hello, world!")
 print("My name is Yash")
 print("I am learning Python using GitHub")
+print("2 + 3")
+print("10 - 4")
