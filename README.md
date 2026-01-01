@@ -1,2 +1,4 @@
-# Android-github-basics
-Learning GitHub using Android phone. Practicing commits and repositories.
+Hello GitHub 👋
+
+My name is Yash.
+I am learning GitHub using my Android phone.
