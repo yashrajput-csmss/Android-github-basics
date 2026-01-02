@@ -1,0 +1,79 @@
+atm_pin = 1234
+balance = 2000
+attempts = 3
+
+# PIN check
+while attempts > 0:
+    pin = int(input("Enter your pin: "))
+    if pin == atm_pin:
+        print("Welcome to your account")
+        break
+    else:
+        attempts -= 1
+        print("Wrong PIN, access denied")
+        print("Attempts remaining:", attempts)
+
+if attempts == 0:
+    print("Card blocked, too many unsuccessful attempts")
+    exit()
+
+# ATM Menu
+while True:
+    print("\n1. Check balance")
+    print("2. Withdraw money")
+    print("3. Deposit money")
+    print("4. Send money")
+    print("5. Exit")
+
+    choice = int(input("Enter your choice (1/2/3/4/5): "))
+
+    if choice == 1:
+        print("Your balance is:", balance)
+
+    elif choice == 2:
+        amount = int(input("Enter amount to withdraw: "))
+        if amount > balance:
+            print("Insufficient balance")
+        else:
+            balance -= amount
+            print("Please collect cash")
+            print("Remaining balance:", balance)
+
+    elif choice == 3:
+        money = int(input("Enter amount to deposit: "))
+        balance += money
+        print("Deposit successful")
+        print("Updated balance:", balance)
+
+    elif choice == 4:
+        method = input("Send money through (upi/bank): ").lower().strip()
+
+        if method == "upi":
+            upi_id = input("Enter UPI ID: ")
+            money = int(input("Enter amount to transfer: "))
+            if money > balance:
+                print("Insufficient balance")
+            else:
+                balance -= money
+                print("Money successfully transferred to", upi_id)
+                print("Remaining balance:", balance)
+
+        elif method == "bank":
+            account_no = input("Enter account number: ")
+            ifsc = input("Enter IFSC code: ")
+            money = int(input("Enter amount to transfer: "))
+            if money > balance:
+                print("Insufficient balance")
+            else:
+                balance -= money
+                print("Money successfully transferred to bank account")
+                print("Remaining balance:", balance)
+        else:
+            print("Invalid transfer method")
+
+    elif choice == 5:
+        print("Thank you for using ATM")
+        break
+
+    else:
+        print("Invalid choice")
