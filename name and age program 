@@ -1,0 +1,11 @@
+name = input("Enter your name: ")
+age = int(input("Enter your age: "))
+
+if age < 15:
+    print("sorry,", name, "you are not allowed to enter")
+    exit()
+elif age < 18:
+    print("Hello,", name, "you have granted limited access to the program" )
+else: 
+    print("Welcome", name)
+    print("Program continues...")
